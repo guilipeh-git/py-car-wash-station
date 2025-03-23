@@ -34,13 +34,13 @@ class CarWashStation:
 
         return total
 
-    def calculate_washing_price(self, car: callable) -> int:
+    def calculate_washing_price(self, car: Car) -> float:
         calc = car.comfort_class * (self.clean_power - car.clean_mark)
         calc *= self.average_rating / self.distance_from_city_center
 
         return round(calc, 1)
 
-    def wash_single_car(self, car: callable) -> None:
+    def wash_single_car(self, car: Car) -> None:
         car.clean_mark = self.clean_power
 
     def rate_service(self, taxa: int) -> None:
